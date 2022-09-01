@@ -1,58 +1,60 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif, sans-serif;
-    font-weight: normal;
+:root {
+	margin: 0;
+	display:  flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
 }
 
-body {
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(to right, blue, yellow);
+.container {
+	display: grid;
+	width: 328px;
+	height: 530px;
+	border: solid black;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(6, 1fr);
 }
 
-.calculator-grid {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    min-height: 100vh;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+#numberContainer {
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	grid-row: 3 / 8;
+	grid-column: 1 / 4;
 }
 
-.calculator-grid > button {
-    cursor: pointer;
-    font-size: 2rem;
-    border: 1px solid white;
-    outline: none;
-    background-color: rgba(255, 255, 255, .75);
+#operatorContainer {
+	display: grid;
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-columns: 1fr;
+	grid-column: 4 / 5;
+	grid-row: 2 / 8;
 }
 
-.calculator-grid > button:hover {
-    background-color: rgba(255, 255, 255, .9);
-} 
-
-.span-two {
-    grid-column: span 2;
+#clearContainer {
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	display: grid;
+	grid-column: 1 / 4;
+	grid-row: 2 / 3;
 }
 
-.output {
-    grid-column: 1 / -1;
-    background-color: rgba(0, 0, 0, .75);
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    flex-direction: column;
-    padding: 10px;
-    word-wrap: break-word;
-    word-break: break-all;
+#outputBox {
+	display: flex;
+	justify-content: flex-end;
+	grid-row: 1 / 2;
+	grid-column: 1 / 5;
+	border: solid blueviolet;
+	align-items: center;
+	font-family: 'Quicksand', sans-serif;
+	
 }
 
-.output .previous-operand {
-    color: rgba(255, 255, 255, .75);
-    font-size: 1.5rem;
-}
-
-.output .current-operand {
-    color: white;
-    font-size: 2.5rem;
+#savedOutputBox {
+	display: flex;
+	grid-row: 1 / 2;
+	grid-column: 1 / 5;
+	justify-content: right;
+	margin-top: auto;
 }
